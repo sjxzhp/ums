@@ -5,12 +5,12 @@ import lombok.Data;
 import javax.persistence.*;
 
 /**
- * 角色表
+ * 组织表
  */
 @Data
 @Entity
-@Table(name = "ums_role")
-public class Role {
+@Table(name = "ums_organization")
+public class Organization {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +26,8 @@ public class Role {
     private Long firstId;
 
     /**
-     * 系统编码
+     * 组织类型
      */
-    @Column(name = "sys_code", length = 50)
-    private String sysCode;
-
+    @Column(name = "type")
+    private Integer type;
 }

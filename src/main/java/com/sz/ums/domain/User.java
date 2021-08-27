@@ -4,6 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+/**
+ * 用户表
+ */
 @Data
 @Entity
 @Table(name = "ums_user")
