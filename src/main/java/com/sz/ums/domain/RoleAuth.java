@@ -4,21 +4,23 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-/**
- * 系统表
- */
 @Data
 @Entity
-@Table(name = "ums_system")
-public class System {
-
+@Table(name = "ums_role_auth")
+public class RoleAuth {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "sys_name", length = 50)
-    private String sysName;
+    @Column(name = "role_id")
+    private Long roleId;
 
+    @Column(name = "auth_id")
+    private Long authId;
+
+    /**
+     * 系统编码
+     */
     @Column(name = "sys_code", length = 50)
     private String sysCode;
 }
