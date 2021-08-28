@@ -12,7 +12,7 @@
     <div class="row" id="main_login">
         <div class="col-7 bg-danger"></div>
         <div class="col-5">
-            <form action="/api/user/login">
+            <form action="/api/user/login" id="userForm">
                 <div class="form-group form-row user-input">
                     <label for="username" class="col-3">用户名</label>
                     <input type="text" class="form-control col-9" id="username" name="username" placeholder="请输入用户名">
@@ -23,14 +23,15 @@
                 </div>
                 <div class="form-group form-row user-input">
                     <input type="text" class="form-control col-9" id="tokenText" placeholder="不区分大小写">
-                    <div id="token" class="col-3 bg-danger"></div>
+                    <div id="token" class="col-3" onclick="Login.setToken()"></div>
                 </div>
-                <div class="form-group form-row">
-                    <button type="submit" class="form-control btn btn-primary col-6">登&nbsp;录</button>
+                <div class="form-group form-row user-input">
+                    <button type="button" class="form-control btn btn-primary col-6" id="submit" onclick="Login.login()">登&nbsp;录</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<script type="text/javascript" th:src="@{/page/login/js/login.js}"></script>
 </body>
 </html>
