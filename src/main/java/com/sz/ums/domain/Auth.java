@@ -36,6 +36,16 @@ public class Auth {
      */
     @Column(name = "menu_url", length = 50)
     private String menuUrl;
+    /**
+     * 菜单名称
+     */
+    @Column(name = "menu_name", length = 50)
+    private String menuName;
+    /**
+     * 菜单编码
+     */
+    @Column(name = "menu_code", length = 50)
+    private String menuCode;
 
     /**
      * 排序

@@ -10,9 +10,9 @@
 <div th:replace="common"></div>
 <div id="main">
     <div class="row" id="main_login">
-        <div class="col-7 bg-danger"></div>
+        <div class="col-7" ></div>
         <div class="col-5">
-            <form action="/api/user/login" id="userForm">
+            <form action="../user/login" id="userForm" method="post">
                 <div class="form-group form-row user-input">
                     <label for="username" class="col-3">用户名</label>
                     <input type="text" class="form-control col-9" id="username" name="username" placeholder="请输入用户名">
@@ -26,7 +26,7 @@
                     <div id="token" class="col-3" onclick="Login.setToken()"></div>
                 </div>
                 <div class="form-group form-row user-input">
-                    <button type="button" class="form-control btn btn-primary col-6" id="submit" onclick="Login.login()">登&nbsp;录</button>
+                    <button type="button" class="form-control btn btn-primary col-6" onclick="Login.login()">登&nbsp;录</button>
                 </div>
             </form>
         </div>
