@@ -5,9 +5,9 @@
     <title>Title</title>
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" th:href="@{/page/login/css/login.css}">
+    <div th:replace="comm/css"></div>
 </head>
 <body>
-<div th:replace="common"></div>
 <div id="main">
     <div class="row" id="main_login">
         <div class="col-7" ></div>
@@ -32,6 +32,7 @@
         </div>
     </div>
 </div>
+<div th:replace="comm/js"></div>
 <script type="text/javascript" th:src="@{/page/login/js/login.js}"></script>
 </body>
 </html>

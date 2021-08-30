@@ -27,8 +27,8 @@ public class LoginController {
         User user = userRepo.findUserByUsernameAndPassword(username, password);
         if (user!=null){
             String jwt = JWTUtil.createJWT(username, password);
-            HttpServletResponse httpServletResponse = JWTUtil.setCookie(jwt, response);
-            httpServletResponse.sendRedirect("/ums/s/main-home");
+            JWTUtil.setCookie(jwt, response);
+            response.sendRedirect("/ums/s/main-home?jwt="+jwt);
         }else{
             response.sendRedirect("http://www.hello.com:8081/");
         }
