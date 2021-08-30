@@ -10,8 +10,8 @@ const MAIN_HOME = function ($) {
 
     // 初始化
     function init(){
-        console.info(user)
-        console.info(auths)
+        // console.info(user)
+        // console.info(auths)
         // global.elements.name = user.username;
     }
 

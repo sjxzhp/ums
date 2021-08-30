@@ -1,3 +1,30 @@
+<nav class="nav-menu" id="menu-ul"></nav>
 <script th:inline="javascript">
+    var user = [[${user}]];
+    var auths = [[${auths}]];
+    //菜单生成
+    var menu = {
+        main: function main() {
+            var resList = auths;
+            console.info(resList)
+            if (!resList || 0 == resList.length) {
+                return '';
+            }
+            var mainMenuArr = [];
+            for (let i = 0; i < auths.length; i++) {
+                let res = auths[i];
+                console.info(res);
+                let code = res.menuCode;
+                let url = res.menuUrl;
+                let name = res.menuName;
+                mainMenuArr.push('<li id="nav_'+code+'"><a href="'+url+'"><img src="">'+name+'</a></li>');
+            }
+            return mainMenuArr.join('');
+        },
+
+    };
+
+    document.getElementById('menu-ul').innerHTML = menu.main();
+    // $('#menu-ul').innerHTML = menu.main();
 
 </script>
