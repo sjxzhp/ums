@@ -7,16 +7,29 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.UUID;
 
+@Component
 public class JWTUtil {
     private static final long JWT_WEB_TTL=30*60*1000;
     private static final String JWT_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDdzlFTZgQ0I/SwjF3SYFT7lk9dVQqlQ+EGmIX5XcvtBS7Avby0zC5jPYEzsA15NIDn/SUasOiFGP43lYnZQ/gQ8YRyURlQqmWbgTx50IR7bp4O+z1ijLhNzl/V/uHbrMWiIoifrvuYVlW0nXvFszBJO7V2lnBICjaSQdTRBE8EHItPtbpEzjUTJFkGK9Ki104liClrtSX2VzYB5yl1aak8+cmowJY+6RAcs26TaL7tyFx3e2EXm2adAwLtL2pV1F5qwpV7LQpTMFDhyplhZegPz3CYMbebJlPFeWrr/5lbAdgccmgtyRrGc0JvE2yHI52iPhlQOecJvifg5J2foOJbTZy/EI35xJ1YgLsdoVxzFQxIgKhaM6Cgr31+zdyjjmy8s7mGTGZQRBKUwoagT9gP/O3b4CT5oZQcS/Sh5hgd062q2lZ3U94WKF5ZcThylIZhRz7HrmohtN/vl4QZ3yOpwFRtrv5RCtiwGbwaX/HsZ6j60+6GAlJWDY1irumu7n8= 1043495113@qq.com";
-    private static UserRepo userRepo;
+    @Autowired
+    private UserRepo userRepo;
+
+    private static JWTUtil jwtUtil;
+    @PostConstruct
+    public void init() {
+        jwtUtil = this;
+        jwtUtil.userRepo = this.userRepo;
+    }
+
     //创建JWT
     public static String createJWT(String username,String password){
         long nowMillis=System.currentTimeMillis();
@@ -65,9 +78,11 @@ public class JWTUtil {
         response.addCookie(cookie);
     }
 
+
+
     public static User getUser(String jwt){
         Claims claims = JWTUtil.parseJWT(jwt);
-        User user = userRepo.findUserByUsernameAndPassword(String.valueOf(claims.get("username")), String.valueOf(claims.get("password")));
+        User user = jwtUtil.userRepo.findUserByUsernameAndPassword(String.valueOf(claims.get("username")), String.valueOf(claims.get("password")));
         return user;
     }
 }
