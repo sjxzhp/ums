@@ -13,6 +13,7 @@ const MAIN_HOME = function ($) {
         // console.info(user)
         // console.info(auths)
         // global.elements.name = user.username;
+
     }
 
     return {

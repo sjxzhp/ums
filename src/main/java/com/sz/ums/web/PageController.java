@@ -4,6 +4,7 @@ import com.sz.ums.domain.Auth;
 import com.sz.ums.domain.User;
 import com.sz.ums.repo.AuthRepo;
 import com.sz.ums.util.JWTUtil;
+import com.sz.ums.util.UserUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,15 +24,15 @@ public class PageController {
         this.authRepo = authRepo;
     }
 
-    @RequestMapping("/api/login/test")
+    @RequestMapping("/api/login")
     public String login(){
         return "login";
     }
 
     @GetMapping("/s/{view}")
     public String view(@PathVariable String view, Model model, HttpServletRequest request, HttpServletResponse response) {
-        String jwt = request.getQueryString().substring(4);
-        User user = JWTUtil.getUser(jwt);
+//        User user = JWTUtil.getUser(jwt);
+        User user= UserUtil.getUserLocal();
         List<Auth> authList = authRepo.findAuthList(user.getId());
         model.addAttribute("user",user);
         model.addAttribute("auths",authList);

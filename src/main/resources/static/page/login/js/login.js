@@ -35,7 +35,6 @@ var Login = function () {
     }
 
     function checkUser() {
-        var user=false;
         var username = global.element.username.val();
         var password = global.element.password.val();
         if (username==''){
@@ -46,15 +45,7 @@ var Login = function () {
             alert('密码不能为空');
             return false;
         }
-        $.ajaxSettings.async = false;
-        $.post('../user/checkUser', {'username': username, "password": password}, function (resp) {
-            if (!resp) {
-                alert('用户名或密码错误');
-            }
-            user=resp;
-        })
-        $.ajaxSettings.async = true;
-        return user;
+        return true;
     }
 
     function login() {
@@ -69,6 +60,11 @@ var Login = function () {
 
     function init() {
         setToken();
+        $(document).off('keyup').on('keyup',function (e) {
+            if (e.keyCode==13){
+                login();
+            }
+        })
     }
 
     return {

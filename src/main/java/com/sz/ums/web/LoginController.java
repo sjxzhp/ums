@@ -28,14 +28,18 @@ public class LoginController {
         if (user!=null){
             String jwt = JWTUtil.createJWT(username, password);
             JWTUtil.setCookie(jwt, response);
-            response.sendRedirect("/ums/s/main-home?jwt="+jwt);
+            response.setHeader("jwt",jwt);
+            response.sendRedirect("/ums/s/main-home");
         }else{
             response.sendRedirect("http://www.hello.com:8081/");
         }
     }
     @PostMapping("/checkUser")
     @ResponseBody
-    public boolean checkUser(String username,String password){
-        return loginService.checkUser(username,password);
+    public boolean checkUser(String username,String password,HttpServletResponse response) throws IOException {
+        if (loginService.checkUser(username,password)){
+            response.sendRedirect("http://localhost:8900/ums/api/login/tomain"); 
+        }
+        return false;
     }
 }
