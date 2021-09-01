@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 .nav-menu-box{
     width: 256px;
     height: calc(100vh - 50px);
@@ -8,6 +13,7 @@
     list-style: none;
     border: 1px solid red;
     height: 50px;
+    text-align: center;
 }
 
 .nav-menu > li > a{
