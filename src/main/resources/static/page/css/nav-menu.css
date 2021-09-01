@@ -1,0 +1,15 @@
+.nav-menu-box{
+    width: 256px;
+    height: calc(100vh - 50px);
+    max-width: 256px;
+}
+
+.nav-menu > li{
+    list-style: none;
+    border: 1px solid red;
+    height: 50px;
+}
+
+.nav-menu > li > a{
+    text-decoration: none;
+}
