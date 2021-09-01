@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="comm/css"></div>
+</head>
+<body style="height: 100%;width: 100%;">
+<div th:replace="comm/header"></div>
+<!--主面板-->
+<div id="panel-sd-main" class="container-fluid fade  show active">
+    <div class="row flex-xl-nowrap">
+        <!--左侧菜单-->
+        <div class="nav-menu-box">
+            <div th:replace="comm/menu"></div>
+        </div>
+        <!--右侧内容-->
+        <div id="" class="col py-md-3  bd-content right-container" style=" background: #f0f5fa;max-width: calc(100vw - 200px);  height: calc(100vh - 50px);">
+            组织管理
+        </div>
+    </div>
+</div>
+<div th:replace="comm/js"></div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-const MAIN_HOME = function ($) {
+const USER_MANAGEMENT = function ($) {
     //内部常量定义
     const global = {
         elements :{
@@ -21,6 +21,6 @@ const MAIN_HOME = function ($) {
     };
 }(jQuery);
 $(document).ready(function () {
-    MAIN_HOME.init();
+    USER_MANAGEMENT.init();
 });
 

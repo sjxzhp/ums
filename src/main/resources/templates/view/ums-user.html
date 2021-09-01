@@ -5,6 +5,10 @@
     <title>Title</title>
     <div th:replace="comm/css"></div>
 </head>
+<script th:inline="javascript">
+    var user = [[${user}]];
+    var auths = [[${auths}]];
+</script>
 <body style="height: 100%;width: 100%;">
 <div th:replace="comm/header"></div>
 <!--主面板-->
@@ -21,5 +25,6 @@
     </div>
 </div>
 <div th:replace="comm/js"></div>
+<script type="text/javascript" th:src="@{/page/user-management/user-management.js}"></script>
 </body>
 </html>

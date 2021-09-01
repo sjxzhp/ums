@@ -29,7 +29,7 @@ public class LoginController {
             String jwt = JWTUtil.createJWT(username, password);
             JWTUtil.setCookie(jwt, response);
             response.setHeader("jwt",jwt);
-            response.sendRedirect("/ums/s/main-home");
+            response.sendRedirect("/ums/s/ums-user");
         }else{
             response.sendRedirect("http://www.hello.com:8081/");
         }
