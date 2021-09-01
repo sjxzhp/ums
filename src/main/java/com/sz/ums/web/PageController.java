@@ -28,6 +28,10 @@ public class PageController {
     public String login(){
         return "login";
     }
+    @RequestMapping("/")
+    public String toLogin(){
+        return "login";
+    }
 
     @GetMapping("/s/{view}")
     public String view(@PathVariable String view, Model model, HttpServletRequest request, HttpServletResponse response) {

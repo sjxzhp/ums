@@ -18,7 +18,7 @@ import java.io.IOException;
 @Slf4j
 public class UmsFilter implements Filter {
     private String [] prefix={};
-    private String [] suffix={"/login",".png",".css",".js",".jpg",".map"};
+    private String [] suffix={"/login",".png",".css",".js",".jpg",".map","/"};
     @Autowired
     private UserRepo userRepo;
     @Override
