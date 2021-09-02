@@ -3,6 +3,8 @@ package com.sz.ums.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 组织表
@@ -22,12 +24,16 @@ public class Organization {
     @Column(name = "code", length = 50)
     private String code;
 
-    @Column(name = "first_id")
-    private Long firstId;
-
     /**
      * 组织类型
      */
     @Column(name = "type")
     private Integer type;
+
+    @OneToMany(
+            mappedBy = "id",
+            orphanRemoval = true,
+            cascade = CascadeType.ALL
+    )
+    private List<Department> departments=new ArrayList<>();
 }
