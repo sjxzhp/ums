@@ -16,5 +16,6 @@ public class Department {
     @Column(name = "name",length = 50)
     private String name;
     @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "orgId")
     private Organization organization;
 }
