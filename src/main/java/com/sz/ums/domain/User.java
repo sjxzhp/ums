@@ -24,4 +24,7 @@ public class User {
 
     @Column(name = "org_id")
     private Long orgId;
+
+    @Column(name = "dep_id")
+    private Long depId;
 }

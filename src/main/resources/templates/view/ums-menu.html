@@ -16,10 +16,11 @@
         </div>
         <!--右侧内容-->
         <div id="" class="col py-md-3  bd-content right-container" style=" background: #f0f5fa;max-width: calc(100vw - 200px);  height: calc(100vh - 50px);">
-            菜单管理
+            <div th:replace="view/menu-management/menu-management-main"></div>
         </div>
     </div>
 </div>
 <div th:replace="comm/js"></div>
+<script type="text/javascript" th:src="@{/page/user-management/user-management.js}"></script>
 </body>
 </html>
