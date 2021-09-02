@@ -1,6 +1,5 @@
 package com.sz.ums.web;
 
-import com.alibaba.fastjson.JSONObject;
 import com.sz.ums.service.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
