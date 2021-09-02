@@ -21,4 +21,7 @@ public class User {
 
     @Column(name = "password", length = 50)
     private String password;
+
+    @Column(name = "org_id")
+    private Long orgId;
 }

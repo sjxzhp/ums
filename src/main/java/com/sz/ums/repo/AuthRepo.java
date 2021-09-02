@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface AuthRepo extends JpaRepository<Auth, Long>, JpaSpecificationExecutor<Auth> {
 
-    @Query(value = "SELECT u1.* FROM ums_auth u1,ums_user_organization u3,ums_user u4,ums_role_organization u5,ums_role_auth u6\n" +
-            "WHERE u4.id = u3.user_id and u3.org_id = u5.org_id and u5.role_id = u6.role_id and u6.auth_id = u1.id and u6.sys_code = u1.sys_code\n", nativeQuery = true)
+    @Query(value = "SELECT u1.* FROM ums_auth u1,ums_user u2,ums_role_organization u3,ums_role_auth u4\n" +
+            "WHERE u2.org_id = u3.org_id and u3.role_id = u4.role_id and u4.auth_id = u1.id and u4.sys_code = u1.sys_code\n", nativeQuery = true)
     List<Auth> findAuthList(Long userId);
 
 
