@@ -15,7 +15,7 @@ public class Department {
     private String code;
     @Column(name = "name",length = 50)
     private String name;
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orgId")
     private Organization organization;
 }
