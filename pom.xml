@@ -95,6 +95,11 @@
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
             <version>4.6.0</version>
         </dependency>
@@ -103,23 +108,18 @@
             <artifactId>bootstrap-table</artifactId>
             <version>1.15.5</version>
         </dependency>
-        <dependency>
-            <groupId>org.webjars.bower</groupId>
-            <artifactId>jquery</artifactId>
-            <version>1.9.1</version>
-        </dependency>
     </dependencies>
 
     <build>
-<!--        <resources>-->
-<!--            <resource>-->
-<!--                <directory>${basedir}/src/main/resources</directory>-->
-<!--            </resource>-->
-<!--            <resource>-->
-<!--                <directory>${basedir}/src/main/resources/config</directory>-->
-<!--            </resource>-->
-<!--        </resources>-->
-<!--        <finalName>ums</finalName>-->
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/resources/config</directory>
+            </resource>
+        </resources>
+        <finalName>ums</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

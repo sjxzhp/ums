@@ -13,5 +13,9 @@ public interface AuthRepo extends JpaRepository<Auth, Long>, JpaSpecificationExe
             "WHERE u2.org_id = u3.org_id and u3.role_id = u4.role_id and u4.auth_id = u1.id and u4.sys_code = u1.sys_code\n", nativeQuery = true)
     List<Auth> findAuthList(Long userId);
 
+    List<Auth> findAllByMenuNameAndSysCode(String menuName,String sysCode);
+
+    List<Auth> findAllBySysCode(String sysCode);
+
 
 }

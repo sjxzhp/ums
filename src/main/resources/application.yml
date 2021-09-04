@@ -60,3 +60,5 @@ server:
   servlet:
     context-path: /ums
   max-http-header-size: 102400
+sysCode:
+  value: 100
