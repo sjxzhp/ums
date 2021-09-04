@@ -1,7 +1,8 @@
 <nav class="nav-menu" id="menu-ul"></nav>
 <script th:inline="javascript">
     var user = [[${user}]];
-    var auths = [[${auths}]];
+    var auths = [[${auths}]]
+    var pathname = location.pathname;
     //菜单生成
     var menu = {
         main: function main() {
@@ -16,7 +17,11 @@
                 let code = res.menuCode;
                 let url = res.menuUrl;
                 let name = res.menuName;
-                mainMenuArr.push('<li id="nav_'+code+'"><a href="'+url+'"><img src="">'+name+'</a></li>');
+                if (url == pathname){
+                    mainMenuArr.push('<li id="nav_'+code+'" class="active"><a href="'+url+'"><img src="">'+name+'</a></li>');
+                }else {
+                    mainMenuArr.push('<li id="nav_'+code+'"><a href="'+url+'"><img src="">'+name+'</a></li>');
+                }
             }
             return mainMenuArr.join('');
         },
@@ -24,17 +29,6 @@
     };
 
     document.getElementById('menu-ul').innerHTML = menu.main();
-
-    let lis = document.querySelectorAll('#menu-ul > li');
-    console.info(lis)
-    for (let i = 0; i < lis.length; i++) {
-        lis[i].onclick = function (event) {
-            let li = document.getElementsByClassName('active')[0];
-            li.classList.remove('active');
-            this.target.classList.add('active');
-        }
-    }
-
 
 </script>
 
