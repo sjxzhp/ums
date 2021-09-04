@@ -25,8 +25,10 @@
 .navtitle{
     width: 256px;
     line-height: 50px;
-    border: 1px solid red;
     margin-left: -16px;
-    margin-top: -8px;
+    margin-top: -7px;
     text-align: center;
+    background-color: rgba(40,46,128,1);
+    color: white;
+    font-size: 17px;
 }

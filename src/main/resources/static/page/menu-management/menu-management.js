@@ -89,6 +89,10 @@ const MENU_MANAGEMENT = function ($) {
         };
         return oTableInit;
     };
+    
+    function searchMenu() {
+
+    }
 
     // 初始化
     function init(){

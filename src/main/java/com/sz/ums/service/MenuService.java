@@ -22,7 +22,7 @@ public class MenuService {
     public List<Auth> findMenuList(String menuName) {
         List<Auth> menuList = null;
         if (menuName != null){
-            menuList = authRepo.findAllByMenuNameAndSysCode(menuName, sysCode);
+            menuList = authRepo.findAllByMenuNameLikeAndSysCode("%"+menuName+"%", sysCode);
         }else {
             menuList = authRepo.findAllBySysCode(sysCode);
         }

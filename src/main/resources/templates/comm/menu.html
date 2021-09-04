@@ -13,7 +13,6 @@
             var mainMenuArr = [];
             for (let i = 0; i < auths.length; i++) {
                 let res = auths[i];
-                console.info(res);
                 let code = res.menuCode;
                 let url = res.menuUrl;
                 let name = res.menuName;
@@ -25,6 +24,17 @@
     };
 
     document.getElementById('menu-ul').innerHTML = menu.main();
-    // $('#menu-ul').innerHTML = menu.main();
+
+    let lis = document.querySelectorAll('#menu-ul > li');
+    console.info(lis)
+    for (let i = 0; i < lis.length; i++) {
+        lis[i].onclick = function (event) {
+            let li = document.getElementsByClassName('active')[0];
+            li.classList.remove('active');
+            this.target.classList.add('active');
+        }
+    }
+
 
 </script>
+
